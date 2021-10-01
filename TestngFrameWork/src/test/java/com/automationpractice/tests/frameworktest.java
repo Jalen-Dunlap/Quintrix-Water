@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import com.automationpractice.foundation.TestBase;
 import com.automationpractice.pageObjects.FrameWorkTest;
 
-public class DemoQaTests extends TestBase {
+public class frameworktest extends TestBase {
 
 
 	@Test

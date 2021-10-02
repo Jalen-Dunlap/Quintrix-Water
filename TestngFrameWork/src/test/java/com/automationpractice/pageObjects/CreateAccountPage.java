@@ -53,6 +53,9 @@ public class CreateAccountPage extends PageObject {
 	@FindBy(id = "submitAccount")
 	private WebElement registerBtn;
 
+	@FindBy(xpath = "//div[@class='alert alert-danger']")
+	private WebElement alertBox;
+
 	public String FillInCreateAccountDetails() {
 
 		WebElement arizonaEle = stateDropDown.findElement(By.cssSelector(" [value='1']"));
@@ -81,4 +84,28 @@ public class CreateAccountPage extends PageObject {
 		return title;
 	}
 
+	public WebElement FillInCreateAccountDetailsNegativeTest() throws InterruptedException {
+
+		WebElement arizonaEle = stateDropDown.findElement(By.cssSelector(" [value='1']"));
+
+		String fName = "Bill";
+		String lName = "Tacos";
+
+		fNameInput.sendKeys(fName);
+		lNameInput.sendKeys(lName);
+
+		passwordInput.sendKeys("12345");
+
+		addressLine1.sendKeys("1234 no where");
+		cityInput.sendKeys("some city");
+
+		DriverTools.scrollToElement(arizonaEle, this.driver);
+		stateDropDown.click();
+		arizonaEle.click();
+
+		registerBtn.click();
+
+		return alertBox;
+
+	}
 }

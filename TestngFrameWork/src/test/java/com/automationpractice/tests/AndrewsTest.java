@@ -1,5 +1,6 @@
 package com.automationpractice.tests;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,5 +16,14 @@ public class AndrewsTest extends TestBase {
 
 		Assert.assertEquals(home, "My account - My Store");
 	}
+	
+	@Test
+	public void createUserNegativeFR002B1P2() throws InterruptedException {
+		WebElement alertBox = new HomePage(getDriver(), this.baseUrl).gotoSignInFromHomePage().CreateAccount()
+				.FillInCreateAccountDetailsNegativeTest();
+
+		Assert.assertTrue(alertBox.isDisplayed());
+	}
+
 
 }

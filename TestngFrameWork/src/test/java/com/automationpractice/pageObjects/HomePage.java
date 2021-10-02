@@ -10,19 +10,15 @@ public class HomePage extends PageObject {
 
 	public HomePage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
-	
+
 	}
 
-	
 	@FindBy(xpath = "//a[@class='login']")
 	private WebElement signInBtn;
-	
-	
+
 	public SignInPage gotoSignInFromHomePage() {
 		signInBtn.click();
 		return new SignInPage(this.driver, this.baseUrl);
 	}
 
-	
-	
 }

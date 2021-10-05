@@ -21,7 +21,7 @@ public class SignInPage extends PageObject {
 	@FindBy(id = "SubmitCreate")
 	private WebElement submitBtn;
 
-	@FindBy(xpath = "//*[@id='login_form']/div/p[1]/a")
+	@FindBy(xpath = "//*[@id='login_form']//p[@class = 'lost_password form-group']/a")
 	private WebElement forgotPassword;
 
 	public CreateAccountPage CreateAccount() {

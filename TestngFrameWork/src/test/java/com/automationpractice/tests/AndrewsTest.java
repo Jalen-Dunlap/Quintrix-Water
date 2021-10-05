@@ -25,5 +25,10 @@ public class AndrewsTest extends TestBase {
 		Assert.assertTrue(alertBox.isDisplayed());
 	}
 
+	@Test
+	public void resetPasswordPositive() {
+		WebElement alertBox =new HomePage(getDriver(), this.baseUrl).gotoSignInFromHomePage().clickForgotPassword().RetrievePassword("potato@potato.com");
+		Assert.assertTrue(alertBox.isDisplayed());
+	}
 
 }

@@ -1,5 +1,6 @@
 package com.automationpractice.pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,12 +21,20 @@ public class SignInPage extends PageObject {
 	@FindBy(id = "SubmitCreate")
 	private WebElement submitBtn;
 
+	@FindBy(xpath = "//*[@id='login_form']//p[@class = 'lost_password form-group']/a")
+	private WebElement forgotPassword;
+
 	public CreateAccountPage CreateAccount() {
 
 		emailAddressInput.sendKeys(email);
 		submitBtn.click();
 
 		return new CreateAccountPage(this.driver, this.baseUrl);
+	}
+
+	public ForgotPasswordPage clickForgotPassword() {
+		forgotPassword.click();
+		return new ForgotPasswordPage(this.driver,this.baseUrl);
 	}
 
 }

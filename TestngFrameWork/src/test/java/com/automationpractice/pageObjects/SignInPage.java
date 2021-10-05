@@ -10,19 +10,10 @@ public class SignInPage extends PageObject {
 
 	public SignInPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
-	}
-
-	@FindBy(id = "email")
-	private WebElement emailSignInInput;
-
-	@FindBy(id = "passwd")
-	private WebElement passwordInput;
-	
-	@FindBy(id = "SubmitLogin")
-	private WebElement submitLoginBtn;
-	
-	public String email = "kurtkobam" + 31243 + (int) (Math.random() * ((1000000 - 31243) + 1)) + "@gmail.com";
-
+	}	
+  
+  public String email = "kurtkobam" + 31243 + (int) (Math.random() * ((1000000 - 31243) + 1)) + "@gmail.com";
+  
 	@FindBy(id = "email_create")
 	private WebElement emailAddressInput;
 
@@ -31,7 +22,29 @@ public class SignInPage extends PageObject {
 
 	@FindBy(xpath = "//*[@id='login_form']//p[@class = 'lost_password form-group']/a")
 	private WebElement forgotPassword;
+  
+	@FindBy(id = "email")
+	private WebElement emailSignInInput;
 
+	@FindBy(id = "passwd")
+	private WebElement passwordInput;
+	
+	@FindBy(id = "SubmitLogin")
+	private WebElement submitLoginBtn;
+  
+  public CreateAccountPage CreateAccount() {
+
+		emailAddressInput.sendKeys(email);
+		submitBtn.click();
+
+		return new CreateAccountPage(this.driver, this.baseUrl);
+	}
+  
+  public ForgotPasswordPage clickForgotPassword() {
+		forgotPassword.click();
+		return new ForgotPasswordPage(this.driver,this.baseUrl);
+	}
+  
 	public SignInPage navigate() {
 		this.driver.navigate().to("http://automationpractice.com/index.php?controller=authentication&back=my-account");
 		return this;
@@ -56,18 +69,5 @@ public class SignInPage extends PageObject {
 			return new MyAccountPage(this.driver, this.baseUrl);
 		}
 		return null;
-	}
-	
-	public ForgotPasswordPage clickForgotPassword() {
-		forgotPassword.click();
-		return new ForgotPasswordPage(this.driver,this.baseUrl);
-	}
-	
-	public CreateAccountPage CreateAccount() {
-
-		emailAddressInput.sendKeys(email);
-		submitBtn.click();
-
-		return new CreateAccountPage(this.driver, this.baseUrl);
-	}
+  }
 }

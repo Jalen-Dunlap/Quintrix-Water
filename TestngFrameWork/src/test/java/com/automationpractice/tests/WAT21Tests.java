@@ -22,7 +22,7 @@ public class WAT21Tests extends TestBase {
 	}
 
 	@Test
-	public void WAT21FR001B1NegativeTest() throws Exception {
+	public void WAT21FR001B1NegativeTest(){
 		new SignInPage(this.getDriver(),this.baseUrl)
 		.navigate()
 		.enterEmail("jalenmbdunlap@gmail.com")

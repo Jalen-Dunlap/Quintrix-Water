@@ -60,11 +60,11 @@ public class SignInPage extends PageObject {
 		return this;
 	}
 
-	public MyAccountPage clickSubmit() throws Exception {
+	public MyAccountPage clickSubmit(){
 		String signInPageTitle = this.driver.getTitle();
 		submitLoginBtn.click();
 		if(this.driver.getTitle().equals(signInPageTitle)) {
-			throw new Exception("Sign in failed");
+			
 		}else if(this.driver.getTitle().equals("My account - My Store")){
 			return new MyAccountPage(this.driver, this.baseUrl);
 		}

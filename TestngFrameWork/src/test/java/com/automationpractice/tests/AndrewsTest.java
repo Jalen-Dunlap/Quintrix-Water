@@ -1,5 +1,6 @@
 package com.automationpractice.tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,6 +19,7 @@ public class AndrewsTest extends TestBase {
 				.FillInCreateAccountDetails();
 
 		Assert.assertEquals(home, "My account - My Store");
+		getDriver().findElement(By.xpath("//a[@title='Log me out']")).click();
 	}
 
 	@Test

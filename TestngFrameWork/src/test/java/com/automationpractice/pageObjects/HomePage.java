@@ -15,7 +15,10 @@ public class HomePage extends PageObject {
 
 	@FindBy(xpath = "//a[@class='login']")
 	private WebElement signInBtn;
-	
+
+	@FindBy(xpath = "//*[@title='Contact us']")
+	private WebElement contactUsBtn;
+
 	@FindBy(xpath = "//ul[@id='homefeatured']//img[@title ='Faded Short Sleeve T-shirts']/..")
 	private WebElement fadeShirtLink;
 
@@ -23,10 +26,16 @@ public class HomePage extends PageObject {
 		signInBtn.click();
 		return new SignInPage(this.driver, this.baseUrl);
 	}
-	
+
 	public GenericProductDetailsPage clickProductImage() {
 		fadeShirtLink.click();
-		return new GenericProductDetailsPage(driver, baseUrl);
+		return new GenericProductDetailsPage(this.driver, this.baseUrl);
+	}
+
+	public ContactUsPage clickContactUs() {
+		contactUsBtn.click();
+
+		return new ContactUsPage(this.driver, this.baseUrl);
 	}
 
 }

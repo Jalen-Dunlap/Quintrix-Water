@@ -4,7 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import com.automationpractice.frameWork.DriverManager;
@@ -15,21 +17,21 @@ import com.automationpractice.frameWork.ConfigsReader;
 public abstract class TestBase {
 
 	public DriverManager drivermanager;
-	protected String baseUrl = "http://automationpractice.com/index.php";
+	public String baseUrl = "http://automationpractice.com/index.php";
 
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 
 		this.drivermanager = new DriverManagerFactory().getManager(ConfigsReader.getProperty("browser"));
 		this.drivermanager.createDriver();
-
+		getDriver().manage().deleteAllCookies();
 		getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		getDriver().manage().window().maximize();
 		getDriver().navigate().to(this.baseUrl);
-
+		
 	}
 
-	@AfterTest
+	@AfterMethod
 	public void cleanUp() {
 		this.drivermanager.quitDriver();
 	}

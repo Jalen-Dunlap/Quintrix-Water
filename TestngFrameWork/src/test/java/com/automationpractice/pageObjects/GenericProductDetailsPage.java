@@ -17,7 +17,7 @@ public class GenericProductDetailsPage extends PageObject{
 	
 	private WebElement WishlistMessage;
 	private WebElement checkoutButton;
-	
+	private WebElement cartSuccessIcon;
 	
 	protected GenericProductDetailsPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
@@ -26,6 +26,7 @@ public class GenericProductDetailsPage extends PageObject{
 	public GenericProductDetailsPage clickaddToCart() {
 		addToCartButton.click();
 		checkoutButton = this.driver.findElement(By.xpath("//a[@title ='Proceed to checkout']"));
+		cartSuccessIcon = this.driver.findElement(By.xpath("//i[@class = 'icon-ok']"));
 		return this;
 	}
 	
@@ -36,9 +37,13 @@ public class GenericProductDetailsPage extends PageObject{
 	}
 	
 	public String getWishlistMessage() {
+		WishlistMessage.click();
 		return WishlistMessage.getText();
 	}
 	
-	
+	public WebElement getAddToCartIcon() {
+		cartSuccessIcon.click();
+		return cartSuccessIcon;
+	}
 
 }

@@ -1,6 +1,7 @@
 package com.automationpractice.tests;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
@@ -16,5 +17,15 @@ public class ProductDetailsPageTests extends TestBase{
 		.clickProductImage()
 		.clickWishList()
 		.getWishlistMessage());
+	}
+	
+	@Test
+	public void addToCartTest() {
+			assertTrue(
+					new HomePage(getDriver(), this.baseUrl)
+					.clickProductImage()
+					.clickaddToCart()
+					.getAddToCartIcon()
+					.isDisplayed());
 	}
 }

@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.automationpractice.foundation.TestBase;
+import com.automationpractice.pageObjects.GenericProductDetailsPage;
 import com.automationpractice.pageObjects.HomePage;
 
 public class AndrewsTest extends TestBase {
@@ -29,6 +30,12 @@ public class AndrewsTest extends TestBase {
 	public void resetPasswordPositive() {
 		WebElement alertBox =new HomePage(getDriver(), this.baseUrl).gotoSignInFromHomePage().clickForgotPassword().RetrievePassword("potato@potato.com");
 		Assert.assertTrue(alertBox.isDisplayed());
+	}
+	
+	@Test
+	public void FR004B2P1clickProductImageToSeeProductDetailsPage() {
+		WebElement home= new HomePage(getDriver(), this.baseUrl).clickProductImage().getDataSheet();
+		Assert.assertEquals(home.getText().toLowerCase(), "data sheet");
 	}
 
 }

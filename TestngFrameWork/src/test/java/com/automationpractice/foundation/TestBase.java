@@ -23,7 +23,7 @@ public abstract class TestBase {
 		this.drivermanager = new DriverManagerFactory().getManager(ConfigsReader.getProperty("browser"));
 		this.drivermanager.createDriver();
 
-		getDriver().manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		getDriver().manage().window().maximize();
 		getDriver().navigate().to(this.baseUrl);
 

@@ -24,13 +24,13 @@ public class SignInPage extends PageObject {
 	private WebElement forgotPassword;
   
 	@FindBy(id = "email")
-	private WebElement emailSignInInput;
+	protected WebElement emailSignInInput;
 
 	@FindBy(id = "passwd")
-	private WebElement passwordInput;
+	protected WebElement passwordInput;
 	
 	@FindBy(id = "SubmitLogin")
-	private WebElement submitLoginBtn;
+	protected WebElement submitLoginBtn;
   
   public CreateAccountPage CreateAccount() {
 

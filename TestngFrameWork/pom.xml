@@ -41,7 +41,7 @@
                     </configuration>
                     <executions>
                         <execution>
-                            <id>AndrewsTest.java</id>
+                            <id>testng.xml</id>
                             <phase>integration-test</phase>
                             <goals>
                                 <goal>integration-test</goal>

@@ -46,4 +46,9 @@ public class GenericProductDetailsPage extends PageObject{
 		return cartSuccessIcon;
 	}
 
+	public CartSummaryPage clickChecoutButton() {
+		checkoutButton.click();
+		return new CartSummaryPage(this.driver, this.baseUrl);
+		
+	}
 }

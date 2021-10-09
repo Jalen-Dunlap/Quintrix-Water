@@ -1,0 +1,45 @@
+
+
+
+
+Team water Sprint 2 Retro
+
+S1:Velocity 31 commited 15 completed
+S2:Velocity 16 commited 40 completed
+
+
+Kurt
+
+What went well
++Automation went well
+
+
+What didnt go good
+-Sprint planning
+
+
+Andrew 
+
+What went well
++Setting up jenkins to run out test suite 
+
+What could be improved 
+-Directions on setting up jenkins to run test suites
+
+
+
+Jalen
+
+What went well
++Setting up jenkins
++communication
+
+
+-planning could have been improved
+-better explanation on test cycles (manual tests)
+-better directions on jira
+
+
+Action items:
+- better directions on setting up jenkins to run test suites 
+- we should plan our sprints better to make sure we can complete what we commit to

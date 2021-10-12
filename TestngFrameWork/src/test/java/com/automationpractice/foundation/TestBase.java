@@ -38,7 +38,7 @@ public abstract class TestBase {
 		
 		
 		if(ITestResult.FAILURE==result.getStatus()) {
-			DriverTools.captureScreen(getDriver());
+			DriverTools.captureScreenNamed(getDriver(),result.getName());
 		};
 		this.drivermanager.quitDriver();
 	}

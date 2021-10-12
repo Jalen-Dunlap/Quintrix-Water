@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -11,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 
 import com.automationpractice.frameWork.DriverManager;
 import com.automationpractice.frameWork.DriverManagerFactory;
+import com.automationpractice.frameWork.DriverTools;
 import com.automationpractice.frameWork.ConfigsReader;
 
 
@@ -32,7 +34,12 @@ public abstract class TestBase {
 	}
 
 	@AfterMethod
-	public void cleanUp() {
+	public void cleanUp(ITestResult result) {
+		
+		
+		if(ITestResult.FAILURE==result.getStatus()) {
+			DriverTools.captureScreen(getDriver());
+		};
 		this.drivermanager.quitDriver();
 	}
 

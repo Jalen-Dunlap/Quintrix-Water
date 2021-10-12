@@ -6,6 +6,8 @@
 	<artifactId>TestngFrameWork</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
  <name>sample-maven-build</name>
+ 
+ 
 <build>
 	 <plugins>
             <!-- Following plugin executes the testng tests -->
@@ -54,6 +56,12 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+<dependency>
+    <groupId>ru.yandex.qatools.ashot</groupId>
+    <artifactId>ashot</artifactId>
+    <version>1.5.4</version>
+</dependency>
 
 	</dependencies>
 

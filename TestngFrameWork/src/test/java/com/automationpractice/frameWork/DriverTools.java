@@ -58,7 +58,7 @@ public class DriverTools {
 	    try {
 	        WebDriver augmentedDriver = new Augmenter().augment(driver);
 	        File source = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
-	        path = "./target/screenshots/" + name+ source.getName();
+	        path = "./target/surefire-reports/screenshots/" + name+ source.getName();
 	        FileUtils.copyFile(source, new File(path)); 
 	    }
 	    catch(IOException e) {

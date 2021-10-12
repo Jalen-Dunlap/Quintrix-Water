@@ -11,9 +11,9 @@ public class frameworktest extends TestBase {
 
 
 	@Test
-	public void testNgFrameWorkTest()  {
+	public void testNgFrameWorkTestMethod()  {
 		String test= new FrameWorkTest(getDriver(), this.baseUrl).test();
-		Assert.assertEquals(test, "My Store");
+		Assert.assertEquals(test, "My Sstore");
 	}
 
 }

@@ -53,7 +53,19 @@ public class DriverTools {
 	}
 
 
-	
+	public static String captureScreenNamed(WebDriver driver, String name) {
+	    String path;
+	    try {
+	        WebDriver augmentedDriver = new Augmenter().augment(driver);
+	        File source = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
+	        path = "./target/screenshots/" + name+ source.getName();
+	        FileUtils.copyFile(source, new File(path)); 
+	    }
+	    catch(IOException e) {
+	        path = "Failed to capture screenshot: " + e.getMessage();
+	    }
+	    return path;
+	}
 	public static String captureScreen(WebDriver driver) {
 	    String path;
 	    try {
